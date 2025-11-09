@@ -5,6 +5,8 @@ cachetools==6.2.1
 certifi==2025.10.5
 charset-normalizer==3.4.4
 click==8.3.0
+folium==0.18.0
+branca==0.8.1
 geopandas==1.1.1
 gitdb==4.0.12
 GitPython==3.1.45
@@ -35,6 +37,7 @@ shapely==2.1.2
 six==1.17.0
 smmap==5.0.2
 streamlit==1.51.0
+streamlit-folium==0.23.1
 tenacity==9.1.2
 toml==0.10.2
 tornado==6.5.2

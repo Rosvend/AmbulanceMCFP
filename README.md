@@ -54,7 +54,7 @@ The interactive **Streamlit application** includes the following features:
 
 ---
 
-## Technologies Used
+## Tech stack
 
 * **Python 3.10+**
 * **OSMnx** – Road network extraction and visualization
@@ -69,49 +69,59 @@ The interactive **Streamlit application** includes the following features:
 
 ```
 .
-├── data/
-│   ├── raw/
-│   ├── processed/
-│
-├── notebooks/
-│   └── model_development.ipynb
-│
+├── app.py                      # Main Streamlit application
+├── requirements.txt            # Python dependencies
+├── data/                       # Cached network data (auto-generated)
+├── docs/
 ├── src/
-│   ├── optimization_model.py
-│   ├── data_loader.py
-│   ├── visualization.py
-│   └── streamlit_app.py
-│
-├── requirements.txt
-├── README.md
-└── report/
-    └── technical_report.pdf
+│   ├── optimization/
+│   │   ├── data_interface.py  # Data structure for optimization
+│   │   └── model.py           # PuLP optimization (pending)
+│   └── visualization/
+│       ├── __init__.py
+│       ├── network.py         # NetworkManager for OSMnx
+│       └── map_display.py     # MapVisualizer for Folium
+└── tests/
+    └── test_network.py        # Network module tests
 ```
 
 ---
 
 ## How to Run the Project
 
+### Prerequisites
+- Python 3.10+
+- pip package manager
+- Internet connection (for downloading OSM data)
+
+### Installation
+
 1. **Clone the repository**
 
    ```bash
-   git clone https://github.com/rosvend/hospital-mcfp-routing.git
-   cd hospital-mcfp-routing
+   git clone https://github.com/rosvend/AmbulanceMCFP.git
+   cd AmbulanceMCFP
    ```
 
-2. **Install dependencies**
+2. **Create virtual environment (recommended)**
+
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Linux/Mac
+   # or
+   venv\Scripts\activate  # On Windows
+   ```
+
+3. **Install dependencies**
 
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the Streamlit app**
+### Running the Application
 
-   ```bash
-   streamlit run src/streamlit_app.py
-   ```
+```bash
+streamlit run app.py
+```
 
-4. **Configure Parameters** in the interface and click
-   **“Recalculate Flows”** or **“Recalculate Capacities”** to view updated results.
-
----
+The application will open in your browser at `http://localhost:8501`
