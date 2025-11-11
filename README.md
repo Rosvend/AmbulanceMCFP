@@ -73,10 +73,11 @@ The interactive **Streamlit application** includes the following features:
 ├── requirements.txt            # Python dependencies
 ├── data/                       # Cached network data (auto-generated)
 ├── docs/
+│ └── informe_tecnico.pdf # Technical report
 ├── src/
 │   ├── optimization/
 │   │   ├── data_interface.py  # Data structure for optimization
-│   │   └── model.py           # PuLP optimization (pending)
+│   │   └── model.py           # PuLP optimization model
 │   └── visualization/
 │       ├── __init__.py
 │       ├── network.py         # NetworkManager for OSMnx
@@ -125,3 +126,10 @@ streamlit run app.py
 ```
 
 The application will open in your browser at `http://localhost:8501`
+
+### Authors
+
+Roy Sandoval — Network Routing & Streamlit Implementation
+
+Alexandra Vasco — Mathematical Model & Documentation
+
