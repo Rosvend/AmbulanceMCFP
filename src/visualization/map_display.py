@@ -36,13 +36,20 @@ class MapVisualizer:
             u_coords = (self.graph.nodes[u]['y'], self.graph.nodes[u]['x'])
             v_coords = (self.graph.nodes[v]['y'], self.graph.nodes[v]['x'])
             
+            # Format capacity for popup
+            capacity = data.get('capacity', None)
+            if capacity is not None:
+                popup_text = f"Capacity: {capacity:.1f} km/h"
+            else:
+                popup_text = "Capacity: N/A"
+            
             # Create line
             folium.PolyLine(
                 locations=[u_coords, v_coords],
                 color=color,
                 weight=weight,
                 opacity=opacity,
-                popup=f"Capacity: {data.get('capacity', 'N/A'):.1f} km/h"
+                popup=popup_text
             ).add_to(self.map)
         
         return self.map
